@@ -46,4 +46,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist $(SolutionDir)\Build mkdir  $(SolutionDir)\Build
+if not exist $(SolutionDir)\Build\$(ConfigurationName) mkdir  $(SolutionDir)\Build\$(ConfigurationName)
+
+copy /y $(TargetPath) $(SolutionDir)\Build\$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
